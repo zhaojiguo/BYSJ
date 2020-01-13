@@ -1,16 +1,20 @@
-# DataSource Config
+
+
+# spring配置
 spring:
   mvc:
-    static-path-pattern: /static/**
+    static-path-pattern: /**
     view:
       prefix: /WEB-INF/view/     #修改文件路径
+  resources:
+    static-locations: classpath:/static/
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/bysj?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8
     username: root
     password: z937925737
 
-####mybatis的配置####
+####mybatisplus的配置####
 mybatis-plus:
   mapper-locations: classpath*:com/bysj/dao/mapping/*.xml
   type-aliases-package: com.bysj.model
@@ -22,3 +26,6 @@ beetl:
   resource-tagroot: common/tags   #自定义标签文件Root目录和后缀
   resource-tagsuffix: tag
   resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
+
+
+
