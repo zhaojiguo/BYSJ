@@ -24,21 +24,31 @@
 	<div class="nav-top">
 		<div class="top">
 			<div class="py-container">
-				<div class="shortcut">
-					<ul class="fl">
+				<div class="shortcut" >
+					<ul class="fl" id="noLogin">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="javascript: void(0)" id="login" target="_blank">登录</a>　<span><a href="javascript: void(0) " target="_blank" id="reg">免费注册</a></span></li>
+						<li class="f-item">请<a href="javascript: void(0);" id="login" >登录</a>　<span><a href="javascript: void(0); "  id="reg">免费注册</a></span></li>
+					</ul>
+					<ul class="f1" id="haveLogin" style="display: none">
+						<li class="f-item" id="my">
+							<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/_/photo.png"><span id="my-name">我</span></a>
+							<dl class="my_item" style="display: none">
+								<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
+								<dd><a href="javascript:;" id="safe">安全管理</a></dd>
+								<dd><a href="javascript:;" id="exit">退出</a></dd>
+							</dl>
+						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="javascript: void(0);" >我的订单</li>
 						<li class="f-item space"></li>
-						<li class="f-item"><a href="./home.html" target="_blank">我的品优购</a></li>
+						<li class="f-item"><a href="javascript: void(0);" >我的品优购</a></li>
 						<li class="f-item space"></li>
-						<li class="f-item">品优购会员</li>
+						<li class="f-item"><a href="javascript: void(0);" >品优购会员</a></li>
 						<li class="f-item space"></li>
-						<li class="f-item">企业采购</li>
+						<li class="f-item"><a href="javascript: void(0);" >企业采购</a></li>
 						<li class="f-item space"></li>
-						<li class="f-item">关注品优购</li>
+						<li class="f-item"><a href="javascript: void(0);" >关注品优购</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item" id="service">
 							<span>客户服务</span>
@@ -50,7 +60,7 @@
 							</ul>
 						</li>
 						<li class="f-item space"></li>
-						<li class="f-item">网站导航</li>
+						<li class="f-item"><a href="javascript: void(0);">网站导航</a></li>
 					</ul>
 				</div>
 			</div>
@@ -676,7 +686,7 @@
 			<div class="title">
 				<h3 class="fl">猜你喜欢</h3>
 				<b class="border"></b>
-				<a href="javascript:;" class="fr tip changeBnt" id="xxlChg"><i></i>换一换</a>
+				<a href="javascript: void(0);" class="fr tip changeBnt" id="xxlChg"><i></i>换一换</a>
 			</div>
 			<div class="bd">
 				<ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
@@ -1227,8 +1237,8 @@
 	<div id="floor-index" class="floor-index">
 		<ul>
 			<li>
-				<a class="num" href="javascript:;" style="display: none;">1F</a>
-				<a class="word" href="javascript;;" style="display: block;">家用电器</a>
+				<a class="num" href="javascript: void(0);" style="display: none;">1F</a>
+				<a class="word" href="javascript; void(0);" style="display: block;">家用电器</a>
 			</li>
 			<li>
 				<a class="num" href="javascript:;" style="display: none;">2F</a>
@@ -1408,6 +1418,7 @@ $(function(){
 	<script type="text/javascript" src="../../../static/bysj/js/widget/jquery.autocomplete.js"></script>
 	<script type="text/javascript" src="../../../static/bysj/js/widget/nav.js"></script>
 	<script type="text/javascript" src="../../../static/bysj/js/pages/index.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/head/head.js"></script>
 </body>
 
 

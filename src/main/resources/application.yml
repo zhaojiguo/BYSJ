@@ -28,4 +28,3 @@ beetl:
   resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
 
 
-

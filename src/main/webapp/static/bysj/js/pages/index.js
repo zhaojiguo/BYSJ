@@ -18,6 +18,7 @@ $(function() {
 		$(this).parent().parent().removeClass('hover');
 		$(this).parent().hide();
 	});
+
 });
 
 /*楼层导航*/
@@ -116,19 +117,6 @@ function RetSelecteds() {
 }
 
 
-$('#reg').on('click',function () {
-	window.location.href = "/index/reg";
-});
-
-$("#login").on("click",function () {
-	window.location.href = "/index/login";
-});
-
-
-
-
-
-
 
 
 
@@ -204,3 +192,4 @@ function rotateElement(element,angle){
     else if(element.css('WebkitTransform')!=undefined)
         element.css('WebkitTransform',rotate);
 }
+

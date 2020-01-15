@@ -8,8 +8,15 @@
     <title>设置-个人信息</title>
      <link rel="icon" href="/assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-seckillOrder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/pages-seckillOrder.css" />
+	<link rel="stylesheet" href="../../../static/bysj/js/layui/css/layui.css">
+	<script src="../../../static/bysj/js/plugins/jquery/jquery.min.js"></script>
+	<script src="../../../static/bysj/js/pages/home-setting-info.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/head/head.js"></script>
+
+
+
 </head>
 
 <body>
@@ -21,9 +28,19 @@
 		<div class="top">
 			<div class="py-container">
 				<div class="shortcut">
-					<ul class="fl">
+					<ul class="fl" id="noLogin">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="javascript: void(0);" id="login" >登录</a>　<span><a href="javascript: void(0); "  id="reg">免费注册</a></span></li>
+					</ul>
+					<ul class="f1" id="haveLogin" style="display: none">
+						<li class="f-item" id="my">
+							<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/userImage/娃哈哈.jpg"><span id="my-name">我</span></a>
+							<dl class="my_item" style="display: none">
+								<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
+								<dd><a href="javascript:;" id="safe">安全管理</a></dd>
+								<dd><a href="javascript:;" id="exit">退出</a></dd>
+							</dl>
+						</li>
 					</ul>
 					<ul class="fr">
 						<li class="f-item">我的订单</li>
@@ -92,7 +109,6 @@
 								</a>
 								<div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
 									<p>"啊哦，你的购物车还没有商品哦！"</p>
-									<p>"啊哦，你的购物车还没有商品哦！"</p>
 								</div>
 							</div>
 						</div>
@@ -122,7 +138,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#service").hover(function(){
@@ -138,17 +154,19 @@ $(function(){
 
 })
 </script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
-<script type="text/javascript" src="js/plugins/birthday/birthday.js"></script>
-<script type="text/javascript" src="js/plugins/citypicker/distpicker.data.js"></script>
-<script type="text/javascript" src="js/plugins/citypicker/distpicker.js"></script>
-<script type="text/javascript" src="js/plugins/upload/uploadPreview.js"></script>
-<script type="text/javascript" src="js/pages/main.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/sui/sui.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/widget/nav.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/birthday/birthday.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/citypicker/distpicker.data.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/citypicker/distpicker.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/upload/uploadPreview.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/pages/main.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/pages/home-setting-info.js"></script>
+	<script src="../../../static/bysj/js/layui/layui.js"></script>
 <script>
-            $(function() {               
+            $(function() {
                 $.ms_DatePicker({
                     YearSelector: "#select_year2",
                     MonthSelector: "#select_month2",
@@ -165,7 +183,7 @@ $(function(){
                 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">
-                        <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
+                        <div class="person-photo"><img src="../../../static/bysj/img/_/photo.png" alt=""></div>
                         <div class="person-account">
                             <span class="name">Michelle</span>
                             <span class="safe">账户安全</span>
@@ -210,16 +228,16 @@ $(function(){
                                     <div class="control-group">
                                         <label for="inputName" class="control-label">昵称：</label>
                                         <div class="controls">
-                                            <input type="text" id="inputName" name="email" placeholder="昵称">
+                                            <input type="text" id="inputName" name="email" placeholder="昵称" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="inputGender" class="control-label">性别：</label>
                                         <div class="controls">
-                                            <label data-toggle="radio" class="radio-pretty inline">
+                                            <label data-toggle="radio" class="radio-pretty inline" id="man">
                                             <input type="radio" name="gender" value="1"><span>男</span>
                                         </label>
-                                            <label data-toggle="radio" class="radio-pretty inline">
+                                            <label data-toggle="radio" class="radio-pretty inline" id="woman">
                                             <input type="radio" name="gender" value="2"><span>女</span>
                                         </label>
                                         </div>
@@ -251,22 +269,15 @@ $(function(){
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label for="inputJob" class="control-label">职业：</label>
-                                        <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                                <input name="job" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
-                                            <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">程序员</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">产品经理</a></li>
-                                                <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">UI设计师</a></li>
-                                            </ul>
-                                            </span>
-                                            </span>
+                                        <label for="inputJob" class="control-label">邮箱：</label>
+                                        <div class="controls">
+                                               <input type="email" id="my_email">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label for="sanwei" class="control-label"></label>
                                         <div class="controls">
-                                            <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                                            <button type="button" id="submit_btn" class="sui-btn btn-primary">保存</button>
                                         </div>
                                     </div>
                                 </form>
@@ -275,12 +286,18 @@ $(function(){
 
                                 <div class="new-photo">
                                     <p>当前头像：</p>
-                                    <div class="upload">
-                                        <img id="imgShow_WU_FILE_0" width="100" height="100" src="img/_/photo_icon.png" alt="">
-                                        <input type="file" id="up_img_WU_FILE_0" />
-                                    </div>
-
-                                </div>
+<!--                                    <div class="upload">-->
+<!--                                        <img id="imgShow_WU_FILE_0" width="100" height="100" src="../../../static/bysj/img/_/photo_icon.png" alt="">-->
+<!--                                        <input type="file" id="up_img_WU_FILE_0" />-->
+<!--                                    </div>-->
+									<div class="layui-upload">
+										<button type="button" class="layui-btn" id="up_img_WU_FILE_0">上传头像</button>
+										<div class="layui-upload-list">
+											<img class="layui-upload-img" id="imgShow_WU_FILE_0" width="100" height="100" src="../../../static/bysj/img/_/photo_icon.png">
+											<p id="demoText"></p>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
 
@@ -398,7 +415,7 @@ $(function(){
 					</div>
 					<div class="yui3-u-1-6">
 						<h4>帮助中心</h4>
-						<img src="img/wx_cz.jpg">
+						<img src="../../../static/bysj/img/wx_cz.jpg">
 					</div>
 				</div>
 			</div>

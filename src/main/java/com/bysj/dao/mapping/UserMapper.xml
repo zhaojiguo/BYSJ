@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bysj.dao.UserMapper">
+    
+    <!--通用查询结果列-->
+    <resultMap id="BaseResultMap" type="com.bysj.model.User">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="data_birth" property="dataBirth"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="emial_address" property="emialAddress"/>
+        <result column="address" property="address"/>
+        <result column="image_path" property="imagePath"/>
+    </resultMap>
+
+    <!--注册插入-->
+    <insert id="regInsert" parameterType="com.bysj.model.User">
+        insert into user (id,user_name,password,phone_number,data_birth,age,sex,emial_address,address,image_path) values
+        (#{id},#{userName},#{password},#{phoneNumber},#{dataBirth},#{age},#{sex},#{emialAddress},#{address},#{imagePath})
+    </insert>
+    <!--查询所有用户-->
+    <select id="getAllUserName" resultType="java.lang.String">
+        select user_name from user
+    </select>
+    <!--查询手机号-->
+    <select id="getPhoneNumber" resultType="java.lang.String">
+        select phone_number from user
+    </select>
+    <!--登录-->
+    <select id="getUsers" resultType="map">
+        select id, user_name, password, phone_number, data_birth, age, sex ,emial_address,address,image_path
+        from user where (user_name = #{userName} or phone_number = #{userName}) and password = #{password}
+    </select>
+
+    <!--更新图片路径-->
+    <update id="updateImagePath">
+        update user set image_path = #{imagePath} where user_name = #{userName}
+    </update>
+    <!--更新用户数据-->
+    <update id="updateData">
+        update user set sex = #{sex}, data_birth = #{dataBirth}, address = #{address},emial_address = #{emialAddress}
+        where id = #{id}
+    </update>
+</mapper>
