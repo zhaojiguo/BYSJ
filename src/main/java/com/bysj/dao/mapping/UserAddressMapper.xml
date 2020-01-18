@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bysj.dao.UserAddressMapper">
+    <!--通用查询结果列-->
+    <resultMap id="BaseResultMap" type="com.bysj.model.UserAddress">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="address_name" property="addressName"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="default_address" property="defaultAddress"/>
+    </resultMap>
+
+    <!--添加地址-->
+    <insert id="addAddress" parameterType="com.bysj.model.UserAddress">
+        insert into user_address (id, user_id,address_name, address, phone, email, default_address) values
+        (#{id},#{userId},#{addressName},#{address},#{phone},#{email},#{defaultAddress})
+    </insert>
+
+    <!--查询所有的收货地址-->
+    <select id="selectAddress" resultType="map" parameterType="java.lang.String">
+        select id, user_id, address_name, address, phone, email, default_address from user_address
+        where user_id = #{userId}
+    </select>
+    <!--删除当前用户的收货地址-->
+    <delete id="deleteAddress" parameterType="java.lang.String">
+        delete from user_address where id = #{id}
+    </delete>
+    <!--设为默认地址-->
+    <update id="setAddress" parameterType="java.lang.String">
+        update user_address set default_address='1' where id = #{id}
+    </update>
+    <update id="defaultAddress">
+        update user_address set default_address = '0'
+    </update>
+</mapper>

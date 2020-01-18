@@ -8,8 +8,9 @@
     <title>订单详情</title>
      <link rel="icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-seckillOrder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/pages-seckillOrder.css" />
+
 </head>
 
 <body>
@@ -21,12 +22,22 @@
 		<div class="top">
 			<div class="py-container">
 				<div class="shortcut">
-					<ul class="fl">
+					<ul class="fl" id="noLogin">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="javascript: void(0);" id="login" >登录</a>　<span><a href="javascript: void(0); "  id="reg">免费注册</a></span></li>
+					</ul>
+					<ul class="f1" id="haveLogin" style="display: none">
+						<li class="f-item" id="my">
+							<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/userImage/娃哈哈.jpg"><span id="my-name">我</span></a>
+							<dl class="my_item f-item" style="display: none">
+								<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
+								<dd><a href="javascript:;" id="safe">安全管理</a></dd>
+								<dd><a href="javascript:;" id="exit">退出</a></dd>
+							</dl>
+						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="javascript: void(0);" id="my-item">首页</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -122,7 +133,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#service").hover(function(){
@@ -138,10 +149,11 @@ $(function(){
 
 })
 </script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/sui/sui.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/widget/nav.js"></script>
+	<script src="../../../static/bysj/js/plugins/head/head.js"></script>
 </body>
     <!--header-->
     <div id="account">
@@ -151,7 +163,7 @@ $(function(){
                 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">
-                        <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
+                        <div class="person-photo"><img src="../../../static/bysj/img/_/photo.png" alt=""></div>
                         <div class="person-account">
                             <span class="name">Michelle</span>
                             <span class="safe">账户安全</span>
@@ -161,11 +173,11 @@ $(function(){
                      <div class="list-items">
                         <dl>
 							<dt><i>·</i> 订单中心</dt>
-							<dd ><a href="home-index.html"  class="list-active" >我的订单</a></dd>
-							<dd><a href="home-order-pay.html" >待付款</a></dd>
-							<dd><a href="home-order-send.html"  >待发货</a></dd>
-							<dd><a href="home-order-receive.html" >待收货</a></dd>
-							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+							<dd ><a href="javascript:void(0);"  class="list-active" id="my-order-form">我的订单</a></dd>
+							<dd><a href="javascript:void(0);" id="obligation">待付款</a></dd>
+							<dd><a href="javascript:void(0);"  id="wait-goods">待发货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-take-goods">待收货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-evaluate">待评价</a></dd>
 						</dl>
 						<dl>
 							<dt><i>·</i> 我的中心</dt>
@@ -177,8 +189,8 @@ $(function(){
 						</dl>
 						<dl>
 							<dt><i>·</i> 设置</dt>
-							<dd><a href="home-setting-info.html">个人信息</a></dd>
-							<dd><a href="home-setting-address.html"  >地址管理</a></dd>
+							<dd><a href="javascript:void(0)" id="user_information" >个人信息</a></dd>
+							<dd><a href="javascript:void(0)" class="list-active" id="address" >地址管理</a></dd>
 							<dd><a href="home-setting-safe.html" >安全管理</a></dd>
 						</dl>
                     </div>
@@ -277,7 +289,7 @@ $(function(){
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="typographic"><img src="img/goods.png" />
+                                            <div class="typographic"><img src="../../../static/bysj/img/goods.png" />
                                                     <span>包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款</span>
                                                     <span class="guige">规格：温泉喷雾150ml</span>
                                                 </div>
@@ -313,7 +325,7 @@ $(function(){
                                 <li class="yui3-u-1-4">
                                     <div class="list-wrap">
                                         <div class="p-img">
-                                            <img src="img/_/itemlike01.png" />
+                                            <img src="../../../static/bysj/img/_/itemlike01.png" />
                                         </div>
                                         <div class="attr">
                                             <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -332,7 +344,7 @@ $(function(){
                                 <li class="yui3-u-1-4">
                                     <div class="list-wrap">
                                         <div class="p-img">
-                                            <img src="img/_/itemlike02.png" />
+                                            <img src="../../../static/bysj/img/_/itemlike02.png" />
                                         </div>
                                         <div class="attr">
                                             <em>Apple苹果iPhone 6s/6s Plus 16G 64G 128G</em>
@@ -351,7 +363,7 @@ $(function(){
                                 <li class="yui3-u-1-4">
                                     <div class="list-wrap">
                                         <div class="p-img">
-                                            <img src="img/_/itemlike03.png" />
+                                            <img src="../../../static/bysj/img/_/itemlike03.png" />
                                         </div>
                                         <div class="attr">
                                             <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -370,7 +382,7 @@ $(function(){
                                 <li class="yui3-u-1-4">
                                     <div class="list-wrap">
                                         <div class="p-img">
-                                            <img src="img/_/itemlike04.png" />
+                                            <img src="../../../static/bysj/img/_/itemlike04.png" />
                                         </div>
                                         <div class="attr">
                                             <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -503,7 +515,7 @@ $(function(){
 					</div>
 					<div class="yui3-u-1-6">
 						<h4>帮助中心</h4>
-						<img src="img/wx_cz.jpg">
+						<img src="../../../static/bysj/img/wx_cz.jpg">
 					</div>
 				</div>
 			</div>

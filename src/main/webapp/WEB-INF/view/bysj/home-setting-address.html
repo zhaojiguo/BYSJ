@@ -8,8 +8,10 @@
     <title>设置-个人信息</title>
      <link rel="icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-seckillOrder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/pages-seckillOrder.css" />
+
+
 </head>
 
 <body>
@@ -21,12 +23,22 @@
 		<div class="top">
 			<div class="py-container">
 				<div class="shortcut">
-					<ul class="fl">
+					<ul class="fl" id="noLogin">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="javascript: void(0);" id="login" >登录</a>　<span><a href="javascript: void(0); "  id="reg">免费注册</a></span></li>
+					</ul>
+					<ul class="f1" id="haveLogin" style="display: none">
+						<li class="f-item" id="my">
+							<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/userImage/娃哈哈.jpg"><span id="my-name">我</span></a>
+							<dl class="my_item f-item" style="display: none">
+								<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
+								<dd><a href="javascript:;" id="safe">安全管理</a></dd>
+								<dd><a href="javascript:;" id="exit">退出</a></dd>
+							</dl>
+						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="javascript: void(0);" id="my-item">首页</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -122,7 +134,8 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery/jquery.min.js"></script>
+	<script src="../../../static/bysj/js/plugins/head/head.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#service").hover(function(){
@@ -138,13 +151,14 @@ $(function(){
 
 })
 </script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
-<script type="text/javascript" src="pages/userInfo/distpicker.data.js"></script>
-<script type="text/javascript" src="pages/userInfo/distpicker.js"></script>
-<script type="text/javascript" src="pages/userInfo/main.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/sui/sui.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/widget/nav.js"></script>
+	<script src="../../../static/bysj/js/pages/home-setting-address.js"></script>
+<!--	<script type="text/javascript" src="../../../static/bysj/pages/userInfo/distpicker.data.js"></script>-->
+<!--	<script type="text/javascript" src="../../../static/bysj/pages/userInfo/distpicker.js"></script>-->
+<!--	<script type="text/javascript" src="../../../static/bysj/pages/userInfo/main.js"></script>-->
 </body>
     <!--header-->
     <div id="account">
@@ -154,7 +168,7 @@ $(function(){
                 <div class="yui3-u-1-6 list">
 
                     <div class="person-info">
-                        <div class="person-photo"><img src="img/_/photo.png" alt=""></div>
+                        <div class="person-photo"><img src="../../../static/bysj/img/_/photo.png" alt=""></div>
                         <div class="person-account">
                             <span class="name">Michelle</span>
                             <span class="safe">账户安全</span>
@@ -164,11 +178,11 @@ $(function(){
                     <div class="list-items">
                         <dl>
 							<dt><i>·</i> 订单中心</dt>
-							<dd ><a href="home-index.html"   >我的订单</a></dd>
-							<dd><a href="home-order-pay.html" >待付款</a></dd>
-							<dd><a href="home-order-send.html"  >待发货</a></dd>
-							<dd><a href="home-order-receive.html" >待收货</a></dd>
-							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+							<dd ><a href="javascript:void(0);" id="my-order-form">我的订单</a></dd>
+							<dd><a href="javascript:void(0);" id="obligation">待付款</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-goods">待发货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-take-goods">待收货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-evaluate">待评价</a></dd>
 						</dl>
 						<dl>
 							<dt><i>·</i> 我的中心</dt>
@@ -180,8 +194,8 @@ $(function(){
 						</dl>
 						<dl>
 							<dt><i>·</i> 设置</dt>
-							<dd><a href="home-setting-info.html" >个人信息</a></dd>
-							<dd><a href="home-setting-address.html" class="list-active" >地址管理</a></dd>
+							<dd><a href="javascript:void(0)" id="user_information" >个人信息</a></dd>
+							<dd><a href="javascript:void(0)" class="list-active" id="address" >地址管理</a></dd>
 							<dd><a href="home-setting-safe.html" >安全管理</a></dd>
 						</dl>
                     </div>
@@ -191,7 +205,7 @@ $(function(){
                     <div class="body userAddress">
                         <div class="address-title">
                             <span class="title">地址管理</span>
-                            <a data-toggle="modal" data-target=".edit" data-keyboard="false"   class="sui-btn  btn-info add-new">添加新地址</a>
+                            <a data-toggle="modal" data-target=".edit" data-keyboard="false"  class="sui-btn  btn-info add-new" >添加新地址</a>
                             <span class="clearfix"></span>
                         </div>
                         <div class="address-detail">
@@ -204,28 +218,8 @@ $(function(){
                                         <th>操作</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>刘田田</td>
-                                        <td>北京 北京市 海淀区 上地街道东北旺西路8号中关村软件园9号楼</td>
-                                        <td>1774***********4</td>
-                                        <td>
-                                            <a href="#">编辑</a>
-                                            <a href="#">删除</a>
-                                            默认地址
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>沈沉</td>
-                                        <td>北京 北京市 海淀区 上地街道东北旺西路8号中关村软件园9号楼</td>
-                                        <td>1774***********4</td>
-                                        <td>
-                                            <a href="#">编辑</a>
-                                            <a href="#">删除</a>
-                                            <a href="#">设为默认</a>
-                                        </td>
-                                    </tr>
-                                    
+                                <tbody id="address-table">
+
                                 </tbody>
                             </table>                          
                         </div>
@@ -242,10 +236,10 @@ $(function(){
                                             <div class="control-group">
                                             <label class="control-label">收货人：</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium">
+                                                <input type="text" class="input-medium" id="user_name">
                                             </div>
                                         </div>
-                                        <div class="control-group">
+                                       <!-- <div class="control-group">
                                             <label class="control-label">所在地区：</label>
                                             <div class="controls">
                                                 <div data-toggle="distpicker">
@@ -260,26 +254,26 @@ $(function(){
                                                 </div>
                                             </div>
                                             </div>									 
-                                        </div>
+                                        </div>-->
                                         <div class="control-group">
                                             <label class="control-label">详细地址：</label>
                                             <div class="controls">
-                                                <input type="text" class="input-large">
+                                                <input type="text" class="input-large" id="address_information">
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">联系电话：</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium">
+                                                <input type="tel" class="input-medium" id="phone">
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">邮箱：</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium">
+                                                <input type="email" class="input-medium" id="email-address">
                                             </div>
                                         </div>
-                                        <div class="control-group">
+                                       <!-- <div class="control-group">
                                             <label class="control-label">地址别名：</label>
                                             <div class="controls">
                                                 <input type="text" class="input-medium">
@@ -287,14 +281,14 @@ $(function(){
                                             <div class="othername">
                                                 建议填写常用地址：<a href="#" class="sui-btn btn-default">家里</a>　<a href="#" class="sui-btn btn-default">父母家</a>　<a href="#" class="sui-btn btn-default">公司</a>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         </form>
                                         
                                         
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large">确定</button>
+                                        <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large" id="add_address">确定</button>
                                         <button type="button" data-dismiss="modal" class="sui-btn btn-default btn-large">取消</button>
                                     </div>
                                 </div>
@@ -415,7 +409,7 @@ $(function(){
 					</div>
 					<div class="yui3-u-1-6">
 						<h4>帮助中心</h4>
-						<img src="img/wx_cz.jpg">
+						<img src="../../../static/bysj/img/wx_cz.jpg">
 					</div>
 				</div>
 			</div>

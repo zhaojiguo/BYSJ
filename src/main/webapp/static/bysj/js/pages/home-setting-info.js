@@ -8,7 +8,7 @@ $(function () {
     let user = JSON.parse(window.sessionStorage.getItem('data'));
     console.log(user);
     if (user != null) {
-        $('.name').text(user.user_name);
+
         $('#inputName').val(user.user_name);
 
         if (user.sex == "男") {
@@ -16,7 +16,33 @@ $(function () {
         }else if (user.sex == "女") {
             $("#woman").addClass("checked");
         }
+        /**
+         * 截取出年，月，日
+         */
+        let dateStr = user.data_birth;
+        let arr = dateStr.split("-");
+        let year = arr[0];
+        let mouth = arr[1];
+        let day = arr[2];
 
+        $('#select_year2').attr('rel',year);
+        $('#select_month2').attr('rel',mouth);
+        $('#select_day2').attr('rel',day);
+
+        /**
+         * 截取省市县
+         */
+        let addressStr = user.address;
+        let reg = /.+?(省|市|自治区|自治州|县|市|区)/g;
+        let addressArr = addressStr.match(reg);
+        console.log(addressArr);
+      //  $('#province1').find("option[value='"+addressArr[0]+"']").attr('selected','selected');
+
+        // $('#city1').find("option[value='"+addressArr[1]+"']").attr('selected','selected');
+        // $('#district1').find("option[value='"+addressArr[2]+"']").attr('selected','selected');
+
+
+        $('#my_email').val(user.emial_address);
 
         $('#submit_btn').on('click',function () {
             let getSex = "";
@@ -58,17 +84,26 @@ $(function () {
                 data: params,
                 url: "/index/saveData",
                 success: function () {
-                    alert("保存成功");
+                    window.location.reload();
+                    let params = {
+                        userName: user.user_name,
+                        password: user.password
+                    }
+
+                   $.ajax({
+                       type: 'post',
+                       dataType: 'json',
+                       data: params,
+                       url: "/index/getLogin",
+                   });
                 }
             });
+
 
         });
     }
 
-    if(user.image_path != null){
-        $("#imgShow_WU_FILE_0").attr('src',user.image_path);
-        $(".person-photo img").attr('src',user.image_path);
-    }
+
     /**
      * 上传头像
      */
@@ -92,7 +127,19 @@ $(function () {
                 ,done: function(res){
                     console.log("照片")
                     console.log(res);
+                    window.location.reload();
+                    let params = {
+                        userName: user.user_name,
+                        password: user.password
+                    }
                     //上传成功
+
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        data: params,
+                        url: "/index/getLogin",
+                    });
                 }
 
             });

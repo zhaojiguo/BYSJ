@@ -35,7 +35,7 @@
 					<ul class="f1" id="haveLogin" style="display: none">
 						<li class="f-item" id="my">
 							<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/userImage/娃哈哈.jpg"><span id="my-name">我</span></a>
-							<dl class="my_item" style="display: none">
+							<dl class="my_item f-item" style="display: none">
 								<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
 								<dd><a href="javascript:;" id="safe">安全管理</a></dd>
 								<dd><a href="javascript:;" id="exit">退出</a></dd>
@@ -43,7 +43,7 @@
 						</li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="javascript: void(0);" id="my-item">首页</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -193,11 +193,11 @@ $(function(){
                     <div class="list-items">
                         <dl>
 							<dt><i>·</i> 订单中心</dt>
-							<dd ><a href="home-index.html"   >我的订单</a></dd>
-							<dd><a href="home-order-pay.html" >待付款</a></dd>
-							<dd><a href="home-order-send.html"  >待发货</a></dd>
-							<dd><a href="home-order-receive.html" >待收货</a></dd>
-							<dd><a href="home-order-evaluate.html" >待评价</a></dd>
+							<dd ><a href="javascript:void(0);" id="my-order-form">我的订单</a></dd>
+							<dd><a href="javascript:void(0);" id="obligation">待付款</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-goods">待发货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-take-goods">待收货</a></dd>
+							<dd><a href="javascript:void(0);" id="wait-evaluate">待评价</a></dd>
 						</dl>
 						<dl>
 							<dt><i>·</i> 我的中心</dt>
@@ -209,8 +209,8 @@ $(function(){
 						</dl>
 						<dl>
 							<dt><i>·</i> 设置</dt>
-							<dd><a href="home-setting-info.html" class="list-active">个人信息</a></dd>
-							<dd><a href="home-setting-address.html"  >地址管理</a></dd>
+							<dd><a href="javascript:void(0)" class="list-active" id="user_information">个人信息</a></dd>
+							<dd><a href="javascript:void(0)" id="address" >地址管理</a></dd>
 							<dd><a href="home-setting-safe.html" >安全管理</a></dd>
 						</dl>
                     </div>

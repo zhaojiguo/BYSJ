@@ -1,8 +1,10 @@
 package com.bysj.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
+import com.bysj.dao.UserAddressMapper;
 import com.bysj.dao.UserMapper;
 import com.bysj.model.User;
+import com.bysj.model.UserAddress;
 import com.bysj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    UserAddressMapper userAddressMapper;
     @Override
     public Integer regInsert(Map<String, Object> map) {
         User user = new User();
@@ -131,6 +135,61 @@ public class UserServiceImpl implements UserService {
         user.setAddress(address);
         user.setEmialAddress(emailAddress);
         Integer integer = userMapper.updateData(user);
+        return integer;
+    }
+
+    /**
+     * 添加收货地址
+     * @param map
+     * @return
+     */
+    @Override
+    public Integer addAddress(Map<String, String> map) {
+        UserAddress userAddress = new UserAddress();
+        userAddress.setId(IdWorker.get32UUID());
+        userAddress.setUserId(map.get("userId"));
+        userAddress.setAddressName(map.get("addressName"));
+        userAddress.setAddress(map.get("addressInformation"));
+        userAddress.setPhone(map.get("phone"));
+        userAddress.setEmail(map.get("email"));
+        userAddress.setDefaultAddress(map.get("defaultAddress"));
+        Integer integer = userAddressMapper.addAddress(userAddress);
+        return integer;
+    }
+
+    /**
+     * 查询所有的收货地址
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> selectAddress(String userId) {
+
+        List<Map<String, Object>> maps = userAddressMapper.selectAddress(userId);
+        return maps;
+    }
+
+    /**
+     * 删除地址
+     * @param addressId
+     * @return
+     */
+    @Override
+    public Integer deleteAddress(String addressId) {
+
+        Integer integer = userAddressMapper.deleteAddress(addressId);
+        return integer;
+    }
+
+    /**
+     * 设置默认地址
+     * @param addressId
+     * @return
+     */
+    @Override
+    public Integer setAddress(String addressId) {
+        userAddressMapper.defaultAddress();
+        Integer integer = userAddressMapper.setAddress(addressId);
         return integer;
     }
 }

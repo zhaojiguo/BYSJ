@@ -7,8 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>我的购物车</title>
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-cart.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="../../../static/bysj/css/pages-cart.css" />
+
 </head>
 
 <body>
@@ -16,12 +17,22 @@
 	<div class="top">
 		<div class="py-container">
 			<div class="shortcut">
-				<ul class="fl">
+				<ul class="fl" id="noLogin">
 					<li class="f-item">品优购欢迎您！</li>
-					<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
+					<li class="f-item">请<a href="javascript: void(0);" id="login" >登录</a>　<span><a href="javascript: void(0); "  id="reg">免费注册</a></span></li>
+				</ul>
+				<ul class="f1" id="haveLogin" style="display: none">
+					<li class="f-item" id="my">
+						<a href="javascript: void(0);" ><img id="my_img" src="../../../static/bysj/img/_/photo.png"><span id="my-name">我</span></a>
+						<dl class="my_item f-item" style="display: none">
+							<dd><a href="javascript:;" id="changeInformation">修改信息</a></dd>
+							<dd><a href="javascript:;" id="safe">安全管理</a></dd>
+							<dd><a href="javascript:;" id="exit">退出</a></dd>
+						</dl>
+					</li>
 				</ul>
 				<ul class="fr">
-					<li class="f-item">我的订单</li>
+					<li class="f-item"><a href="javascript: void(0);" id="my-item">首页</a></li>
 					<li class="f-item space"></li>
 					<li class="f-item">我的品优购</li>
 					<li class="f-item space"></li>
@@ -76,7 +87,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="img/goods.png" /></div>
+										<div class="item-img"><img src="../../../static/bysj/img/goods.png" /></div>
 										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
 											尺寸：13.3英寸</div>
 									</div>
@@ -102,7 +113,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="img/goods.png" /></div>
+										<div class="item-img"><img src="../../../static/bysj/img/goods.png" /></div>
 										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
 											尺寸：13.3英寸</div>
 									</div>
@@ -128,7 +139,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="img/goods.png" /></div>
+										<div class="item-img"><img src="../../../static/bysj/img/goods.png" /></div>
 										<div class="item-msg">
 											Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
 											尺寸：13.3英寸
@@ -164,7 +175,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="img/goods.png" /></div>
+										<div class="item-img"><img src="../../../static/bysj/img/goods.png" /></div>
 										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
 											尺寸：13.3英寸</div>
 									</div>
@@ -190,7 +201,7 @@
 								</li>
 								<li class="yui3-u-11-24">
 									<div class="good-item">
-										<div class="item-img"><img src="img/goods.png" /></div>
+										<div class="item-img"><img src="../../../static/bysj/img/goods.png" /></div>
 										<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存
 											尺寸：13.3英寸</div>
 									</div>
@@ -271,7 +282,7 @@
 								<div class="active item">
 									<ul>
 										<li>
-											<img src="img/like1.png" />
+											<img src="../../../static/bysj/img/like1.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -283,7 +294,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like2.png" />
+											<img src="../../../static/bysj/img/like2.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -295,7 +306,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like3.png" />
+											<img src="../../../static/bysj/img/like3.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -307,7 +318,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like4.png" />
+											<img src="../../../static/bysj/img/like4.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -323,7 +334,7 @@
 								<div class="item">
 									<ul>
 										<li>
-											<img src="img/like1.png" />
+											<img src="../../../static/bysj/img/like1.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -335,7 +346,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like2.png" />
+											<img src="../../../static/bysj/img/like2.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -347,7 +358,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like3.png" />
+											<img src="../../../static/bysj/img/like3.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -359,7 +370,7 @@
 											</div>
 										</li>
 										<li>
-											<img src="img/like4.png" />
+											<img src="../../../static/bysj/img/like4.png" />
 											<div class="intro">
 												<i>Apple苹果iPhone 6s (A1699)</i>
 											</div>
@@ -493,7 +504,7 @@
 					</div>
 					<div class="yui3-u-1-6">
 						<h4>帮助中心</h4>
-						<img src="img/wx_cz.jpg">
+						<img src="../../../static/bysj/img/wx_cz.jpg">
 					</div>
 				</div>
 			</div>
@@ -518,10 +529,11 @@
 </div>
 <!--页面底部END-->
 
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/plugins/sui/sui.min.js"></script>
+	<script type="text/javascript" src="../../../static/bysj/js/widget/nav.js"></script>
+	<script src="../../../static/bysj/js/plugins/head/head.js"></script>
 </body>
 
 </html>

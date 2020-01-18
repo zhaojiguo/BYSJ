@@ -20,7 +20,6 @@ public class IndexController{
 
     @Autowired
     private UserService userService;
-
     /**
      * 跳转到登录页
      */
@@ -54,11 +53,28 @@ public class IndexController{
         return "bysj/home-setting-info.html";
     }
 
-    @RequestMapping("/safe")
+    /**
+     * 跳转到收货地址页
+     * @return
+     */
+    @RequestMapping("/address")
     public String getSafe(){
-        return "/bysj/home-setting-safe.html";
+        return "/bysj/home-setting-address.html";
     }
 
+    @RequestMapping("/myGoods")
+    public String myGoods(){
+        return "/bysj/home-orderDetail.html";
+    }
+
+    /**
+     * 跳转到我的购物车
+     * @return
+     */
+    @RequestMapping("/myCart")
+    public String myCart(){
+        return "/bysj/cart.html";
+    }
     /**
      * 注册
      */
@@ -138,6 +154,55 @@ public class IndexController{
     @ResponseBody
     public Integer saveData(@RequestParam Map<String,Object> map){
         Integer integer = userService.updateData(map);
+        return integer;
+    }
+
+    /**
+     * 添加收货地址
+     * @param map
+     * @return
+     */
+    @RequestMapping("/addAddress")
+    @ResponseBody
+    public Integer addAddress(@RequestParam Map<String,String> map){
+        Integer integer = userService.addAddress(map);
+        return integer;
+    }
+
+    /**
+     * 查询当前用户的收货地址
+     * @param userId
+     * @return
+     */
+    @RequestMapping("/selectAddress")
+    @ResponseBody
+    public Object selectAddress(@RequestParam("userId") String userId){
+        List<Map<String, Object>> maps = userService.selectAddress(userId);
+        System.out.println(userId);
+        return maps;
+    }
+
+    /**
+     * 删除当前用户收货地址
+     * @param id
+     * @return
+     */
+    @RequestMapping("/deleteAddress")
+    @ResponseBody
+    public Integer deleteAddress(@RequestParam("id") String id){
+        Integer integer = userService.deleteAddress(id);
+        return integer;
+    }
+
+    /**
+     * 设为默认地址
+     * @param id
+     * @return
+     */
+    @RequestMapping("/setAddress")
+    @ResponseBody
+    public Integer setAddress(@RequestParam("id") String id){
+        Integer integer = userService.setAddress(id);
         return integer;
     }
 }

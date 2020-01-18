@@ -40,4 +40,32 @@ public interface UserService {
      * @return
      */
     Integer updateData(Map<String,Object> map);
+
+    /**
+     * 添加收货地址
+     * @param map
+     * @return
+     */
+    Integer addAddress(Map<String,String> map);
+
+    /**
+     * 查询所有的收货地址
+     * @param userId
+     * @return
+     */
+    List<Map<String, Object>> selectAddress(String userId);
+
+    /**
+     * 删除当前用户的收货地址
+     * @param addressId
+     * @return
+     */
+    Integer deleteAddress(String addressId);
+
+    /**
+     * 设置默认地址
+     * @param addressId
+     * @return
+     */
+    Integer setAddress(String addressId);
 }
