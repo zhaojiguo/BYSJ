@@ -89,7 +89,7 @@ Right .ads{margin-top:5px}
 .item-list .subitem{float:left;width:650px;padding:0 4px 0 8px}
 .item-list .subitem dl{border-top:1px solid #EEE;padding:6px 0;overflow:hidden;zoom:1}
 .item-list .subitem .fore1{border-top:0}
-.item-list .subitem dt{float:left;width:54px;line-height:22px;text-align:right;padding:3px 6px 0 0;font-weight:700}
+.item-list .subitem dt{float:left;width:65px;line-height:22px;text-align:right;padding:3px 6px 0 0;font-weight:700}
 .item-list .subitem dt a{color:#E4393C;text-decoration:underline}
 .item-list .subitem dd{float:left;width:415px;padding:3px 0 0;overflow:hidden}
 .item-list .subitem dd em{float:left;height:14px;line-height:14px;padding:0 8px;margin-top:5px;border-left:1px solid #CCC}
