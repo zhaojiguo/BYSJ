@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bysj.dao.CartMapper">
+    <!--通用查询结果列-->
+    <resultMap id="BaseResultMap" type="com.bysj.model.Cart">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="shop_name" property="shopName"/>
+        <result column="trade_name" property="tradeName"/>
+        <result column="color" property="color"/>
+        <result column="parameter" property="parameter"/>
+        <result column="price" property="price"/>
+        <result column="trade_number" property="trade_number"/>
+        <result column="img_path" property="img_path"/>
+    </resultMap>
+
+    <select id="selectShop" resultType="map" parameterType="java.lang.String">
+        select id,user_id,shop_name from cart where user_id = #{userId}
+    </select>
+
+    <!--查询所有商品信息-->
+    <select id="selectTrade" resultType="map" parameterType="java.util.Map">
+        select id,user_id,shop_name,trade_name,color,parameter,price,trade_number,img_path from cart
+        where user_id = #{user_id} and shop_name = #{shop_name}
+    </select>
+</mapper>

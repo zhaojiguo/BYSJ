@@ -69,6 +69,7 @@ $(function () {
         $('#noLogin').css('display','block');
         $('#haveLogin').css('display','none');
         window.sessionStorage.removeItem('data');
+        window.location.href = '/index/login';
 
     });
 
@@ -98,4 +99,5 @@ $(function () {
     $('#my-order-form').on('click',function () {
         window.location.href = '/index/myGoods';
     });
+
 });

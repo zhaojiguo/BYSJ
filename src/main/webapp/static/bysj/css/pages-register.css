@@ -1,5 +1,11 @@
 .logoArea{height:78px;border-bottom:2px solid #c81523}
-.logo{background:url(../img/icons.png) no-repeat;width:182px;height:78px;position:absolute;background-position:-367px 0}
+.logo{
+    background:url(../img/Logo.png);
+    width:175px;
+    height:55px;
+    position:absolute;
+    margin-top: 15px;
+}
 .registerArea{margin:15px 0;border:1px solid #dfdfdf;font-family:"微软雅黑"}
 .registerArea h3{background:#ececec;margin:0;padding:6px 15px;color:#333;border-bottom:1px solid #dfdfdf}
 h3 .go{font-size:14px;float:right}.btn-reg{width:270px}

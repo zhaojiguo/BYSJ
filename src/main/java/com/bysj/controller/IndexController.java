@@ -80,11 +80,11 @@ public class IndexController{
      */
     @RequestMapping("/register")
     @ResponseBody
-    public Integer getRegister(@RequestParam Map<String,Object> map){
+    public Integer getRegister(@RequestParam Map<String,Object> params){
         Integer integer= null;
-        System.out.println(map.size());
+        System.out.println(params.size());
         try {
-            integer = userService.regInsert(map);
+            integer = userService.regInsert(params);
 
         }catch (Exception e){
             e.printStackTrace();
