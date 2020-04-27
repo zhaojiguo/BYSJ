@@ -5,12 +5,14 @@
     <resultMap id="BaseResultMap" type="com.bysj.model.Cart">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>
+        <result column="trade_id" property="tradeId"/>
         <result column="shop_name" property="shopName"/>
         <result column="trade_name" property="tradeName"/>
         <result column="color" property="color"/>
         <result column="parameter" property="parameter"/>
         <result column="price" property="price"/>
         <result column="trade_number" property="trade_number"/>
+        <result column="money" property="money"/>
         <result column="img_path" property="img_path"/>
     </resultMap>
 
@@ -20,7 +22,11 @@
 
     <!--查询所有商品信息-->
     <select id="selectTrade" resultType="map" parameterType="java.util.Map">
-        select id,user_id,shop_name,trade_name,color,parameter,price,trade_number,img_path from cart
+        select id,user_id,trade_id,shop_name,trade_name,color,parameter,price,trade_number,money,img_path from cart
         where user_id = #{user_id} and shop_name = #{shop_name}
     </select>
+    <!--更新数据-->
+    <update id="updateCart" parameterType="map">
+        update cart set trade_number = #{tradeNumber},money = #{money} where user_id=#{userId} and trade_id=#{tradeId}
+    </update>
 </mapper>

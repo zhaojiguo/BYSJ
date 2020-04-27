@@ -28,4 +28,10 @@ public class CartServiceImpl implements CartService {
         System.out.println(list.size());
         return tradeMap;
     }
+
+    @Override
+    public Integer updateCart(Map<String, Object> map) {
+        Integer integer = cartMapper.updateCart(map);
+        return integer;
+    }
 }

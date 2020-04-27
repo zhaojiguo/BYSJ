@@ -12,4 +12,9 @@ public interface CartService {
      * @return
      */
     Map<String,Object> selectTrade(String userId);
+
+    /**
+     * 更新购物车数据
+     */
+    Integer updateCart(Map<String,Object> map);
 }

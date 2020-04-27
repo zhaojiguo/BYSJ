@@ -1,5 +1,11 @@
 $(function () {
     var userData = JSON.parse(window.sessionStorage.getItem('data'));
+    console.log($(".count").text())
+    if ($(".count").text()=="0"){
+        $('.cart-main').hide();
+        $('.cart-tool').hide();
+    }
+
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -33,10 +39,10 @@ $(function () {
                         '<li class="yui3-u-1-8"><span class="price">'+(res.trades[i].trade[j].price).toFixed(2)+'</span></li>\n' +
                         '<li class="yui3-u-1-8">\n' +
                         '<a href="javascript:void(0)" class="increment mins">-</a>\n' +
-                        '<input autocomplete="off" type="text" value="'+res.trades[i].trade[j].trade_number+'" minnum="1" class="itxt" />\n' +
+                        '<input autocomplete="off" type="text" trade-id="'+res.trades[i].trade[j].trade_id+'" value="'+res.trades[i].trade[j].trade_number+'" minnum="1" class="itxt" />\n' +
                         '<a href="javascript:void(0)" class="increment plus">+</a>\n' +
                         '</li>\n' +
-                        '<li class="yui3-u-1-8"><span class="sum">'+(res.trades[i].trade[j].price).toFixed(2)+'</span></li>\n' +
+                        '<li class="yui3-u-1-8"><span class="sum">'+(res.trades[i].trade[j].money).toFixed(2)+'</span></li>\n' +
                         '<li class="yui3-u-1-8">\n' +
                         '<a href="#none">删除</a><br />\n' +
                         '<a href="#none">移到我的关注</a>\n' +
@@ -55,6 +61,7 @@ $(function () {
                 const num= $(this).prev().val();
                 const sum =$(this).parent().prev().children().text();
                 $(this).parent().next().children().text((num*sum).toFixed(2));
+                updateCart(this,$(this).prev().val(),$(this).prev().attr('trade-id'));
             });
             $('.mins').on('click',function () {
                 if ($(this).next().val()>1) {
@@ -62,6 +69,7 @@ $(function () {
                     const num= $(this).next().val();
                     const sum =$(this).parent().prev().children().text();
                     $(this).parent().next().children().text((num*sum).toFixed(2));
+                    updateCart(this,$(this).next().val(),$(this).next().attr('trade-id'));
                 }else {
                     alert('数量不能小于1');
                     return;
@@ -69,6 +77,7 @@ $(function () {
 
             });
             $('.itxt').on('input',function () {
+
                 if ($(this).val() < 0 ||$(this).val()=="") {
                     $(this).val(1);
                     alert("数量不能小于1");
@@ -76,12 +85,33 @@ $(function () {
                 const num= $(this).val();
                 const sum =$(this).parent().prev().children().text();
                 $(this).parent().next().children().text((num*sum).toFixed(2));
+                updateCart(this,$(this).val(),$(this).attr('trade-id'));
                 console.log(111)
+
                /* $(this).parent().next().children().text(parseInt($(this).next().val())*parseInt(res.trades[i].trade[j].price));*/
             });
 
 
         }
     });
+
+    function updateCart(that,count,id) {
+        console.log(id)
+        $.ajax({
+            url: "/cart/updateCart",
+            type: "post",
+            dataType:"json",
+            data: {
+                userId: userData.id,
+                tradeNumber: count,
+                tradeId: id,
+                money: $(that).parent().next().children().text()
+            },
+            success:function (res) {
+                console.log(res);
+            }
+
+        });
+    }
 
 });

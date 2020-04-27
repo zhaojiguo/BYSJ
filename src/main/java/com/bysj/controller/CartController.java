@@ -3,6 +3,7 @@ package com.bysj.controller;
 import com.bysj.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,5 +33,24 @@ public class CartController {
             e.printStackTrace();
         }
         return resultMap;
+    }
+
+    /**
+     * 更新购物车数据
+     * @param map
+     * @return
+     */
+    @RequestMapping("/updateCart")
+    @ResponseBody
+    public Map<String,String> updateCart(@RequestParam Map<String,Object> map){
+        Map<String,String> result = new HashMap<>(64);
+        try {
+            Integer integer = cartService.updateCart(map);
+            result.put("success","购物车数据更新成功");
+        }catch (Exception e){
+            result.put("success","购物车数据更新失败");
+        }
+
+        return result;
     }
 }

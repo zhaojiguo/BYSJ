@@ -9,4 +9,6 @@ import java.util.Map;
 public interface CartMapper {
     List<Map<String,Object>> selectShop(String userId);
     List<Map<String,Object>> selectTrade(Map map);
+
+    Integer updateCart(Map<String,Object> map);
 }

@@ -5,6 +5,9 @@ public class Cart {
     private String id;
     //用户id
     private String userId;
+
+    //商品id
+    private String tradeId;
     //商店名
     private String shopName;
     //商品名
@@ -17,6 +20,8 @@ public class Cart {
     private Double price;
     //商品数量
     private Integer tradeNumber;
+    //商品总价格
+    private Double money;
     //商品图片地址
     private String imgPath;
 
@@ -92,17 +97,35 @@ public class Cart {
         this.imgPath = imgPath;
     }
 
+    public String getTradeId() {
+        return tradeId;
+    }
+
+    public void setTradeId(String tradeId) {
+        this.tradeId = tradeId;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "Cart{" +
                 "id='" + id + '\'' +
                 ", userId='" + userId + '\'' +
+                ", tradeId='" + tradeId + '\'' +
                 ", shopName='" + shopName + '\'' +
                 ", tradeName='" + tradeName + '\'' +
                 ", color='" + color + '\'' +
                 ", parameter='" + parameter + '\'' +
-                ", price='" + price + '\'' +
+                ", price=" + price +
                 ", tradeNumber=" + tradeNumber +
+                ", money=" + money +
                 ", imgPath='" + imgPath + '\'' +
                 '}';
     }
